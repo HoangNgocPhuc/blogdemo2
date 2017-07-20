@@ -6,15 +6,20 @@ end
 
 gem "bcrypt", "3.1.11"
 gem "bootstrap-sass", "3.3.7"
+gem "cancancan", "~> 1.10"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "devise"
 gem "faker", "1.7.3"
 gem "fog", "1.40.0"
+gem "i18n"
 gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "puma", "~> 3.0"
+gem "railroady"
 gem "rails", "~> 5.0.4"
+gem "rails_admin"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 
@@ -24,6 +29,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit"
   gem "byebug", platform: :mri
+  gem "capybara"
   gem "database_cleaner"
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
   gem "factory_girl_rails"
@@ -43,7 +49,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "shoulda-matchers"
+  gem "database_cleaner"
+  gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git", branch: "rails-5"
   gem "simplecov", require: false
   gem "simplecov-json"
   gem "simplecov-rcov", require: false

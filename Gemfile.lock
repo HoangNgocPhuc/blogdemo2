@@ -7,6 +7,14 @@ GIT
       execjs
       railties (>= 3.2)
 
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: 0b2e0da6035b9c45b0430bc6eb9a8bab4aeba50e
+  branch: rails-5
+  specs:
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +56,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
     astrolabe (1.3.1)
@@ -69,10 +79,18 @@ GEM
       sass (>= 3.3.4)
     brakeman (3.7.0)
     builder (3.2.3)
-    bundler-audit (0.5.0)
+    bundler-audit (0.6.0)
       bundler (~> 1.2)
       thor (~> 0.18)
     byebug (9.0.6)
+    cancancan (1.17.0)
+    capybara (2.14.4)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     code_analyzer (0.4.7)
       sexp_processor
     codeclimate-engine-rb (0.4.0)
@@ -96,6 +114,12 @@ GEM
     deep_merge (1.1.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
+    devise (4.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.2)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.3)
     docile (1.1.5)
     equalizer (0.0.11)
@@ -157,7 +181,7 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-brightbox (0.11.0)
+    fog-brightbox (0.12.0)
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
@@ -248,6 +272,8 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -265,6 +291,9 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    haml (5.0.1)
+      temple (>= 0.8.0)
+      tilt
     i18n (0.8.6)
     i18n-js (3.0.0)
       i18n (~> 0.6, >= 0.6.6)
@@ -278,11 +307,25 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     jshint (1.5.0)
       execjs (>= 1.4.0)
       multi_json (~> 1.0)
       therubyracer (~> 0.12.1)
     json (1.8.6)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     libv8 (3.16.14.19)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -300,12 +343,14 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     nenv (0.3.0)
+    nested_form (0.3.2)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    orm_adapter (0.5.0)
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.18.4)
@@ -314,8 +359,12 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
+    rack-pjax (1.0.0)
+      nokogiri (~> 1.5)
+      rack (>= 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     railroady (1.5.3)
@@ -339,6 +388,19 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_admin (1.2.0)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (>= 4.0, < 6)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (>= 0.14, < 2.0)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 4.0, < 6)
+      remotipart (~> 1.3)
+      sass-rails (>= 4.0, < 6)
     rails_best_practices (1.18.1)
       activesupport
       code_analyzer (>= 0.4.3)
@@ -371,7 +433,11 @@ GEM
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
     ref (2.0.0)
+    remotipart (1.3.1)
     require_all (1.4.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
@@ -418,8 +484,6 @@ GEM
     scss_lint_reporter_checkstyle (0.2.0)
     sexp_processor (4.10.0)
     shellany (0.0.1)
-    shoulda-matchers (3.1.2)
-      activesupport (>= 4.0.0)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -444,6 +508,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.13)
+    temple (0.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -461,6 +526,8 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -470,6 +537,8 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     xml-simple (1.1.5)
+    xpath (2.1.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -482,14 +551,18 @@ DEPENDENCIES
   brakeman
   bundler-audit
   byebug
+  cancancan (~> 1.10)
+  capybara
   coffee-rails (~> 4.2)
   config
   database_cleaner
+  devise
   eslint-rails!
   factory_girl_rails
   faker (= 1.7.3)
   fog (= 1.40.0)
   guard-rspec
+  i18n
   i18n-js
   jbuilder (~> 2.5)
   jquery-rails
@@ -500,6 +573,7 @@ DEPENDENCIES
   railroady
   rails (~> 5.0.4)
   rails_12factor (= 0.0.2)
+  rails_admin
   rails_best_practices
   reek
   rspec
@@ -510,7 +584,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   scss_lint
   scss_lint_reporter_checkstyle
-  shoulda-matchers
+  shoulda-matchers!
   simplecov
   simplecov-json
   simplecov-rcov
