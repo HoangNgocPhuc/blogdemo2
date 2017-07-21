@@ -29,6 +29,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit"
   gem "byebug", platform: :mri
+  gem "capybara"
   gem "database_cleaner"
   gem "eslint-rails", git: "https://github.com/octoberstorm/eslint-rails", require: false
   gem "factory_girl_rails"
@@ -48,7 +49,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "shoulda-matchers"
+  gem "database_cleaner"
+  gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git", branch: "rails-5"
   gem "simplecov", require: false
   gem "simplecov-json"
   gem "simplecov-rcov", require: false
