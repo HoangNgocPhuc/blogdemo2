@@ -1,0 +1,22 @@
+<div class="row box-left">
+  <div class="col-md-1 image">
+    <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500")%>
+  </div>
+  <div class="col-md-11 news">
+    <div class="author">
+      <%= post.user.name %>
+    </div>
+    <div class="title">
+      <%= link_to post.title %>
+    </div>
+    <div class="tag">
+      <% for tag in post.tags do %>
+        <button class="btn btn-success btn-xs"><%= tag.name %></button>
+      <% end %>
+    </div>
+    <div class="time">
+      <span class="glyphicon glyphicon-time"></span> <%= post.created_at %>
+    </div>
+  </div>
+</div>
+<hr>

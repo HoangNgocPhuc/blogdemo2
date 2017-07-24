@@ -11,6 +11,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :validatable
 
+  scope :hot_user, lambda{
+    joins(:followers).group("users.id")
+      .order("count(users.id) DESC").limit(Settings.hot_user.number)
+  }
+
   validates :name, presence: true, length: {maximum: Settings.user.name.maximum}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
@@ -18,4 +23,12 @@ class User < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true,
     length: {minimum: Settings.user.password.minimum}
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
 end
