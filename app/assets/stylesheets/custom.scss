@@ -1,0 +1,52 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'color';
+
+.box-left {
+
+  .image img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .news {
+    margin: -70px 0 0 80px;
+
+    .author {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-bottom: 3px;
+    }
+
+    .time {
+      margin-top: 5px;
+    }
+  }
+}
+
+.hot-user {
+  background: $white;
+
+  .title {
+    color: $black;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .user {
+    margin-bottom: 20px;
+
+    img {
+      height: 70px;
+      width: 90px;
+    }
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}

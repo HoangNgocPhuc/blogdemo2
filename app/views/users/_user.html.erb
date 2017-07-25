@@ -1,0 +1,19 @@
+<div class="user">
+  <div class="row">
+    <div class="col-md-3 image">
+      <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500") %>
+    </div>
+    <div class="col-md-9 infor">
+      <div class="name">
+        <a href="{{ asset('post/detail/'.$arr->id) }}"><%= user.name %></a>
+      </div>
+      <div class="btn btn-success btn-xs">Follow</div>
+      <div>
+        <span><%= t "users.user.followers" %>: <%= user.followers.size %></span>
+        <span><%= t "users.user.following" %>: <%= user.following.size %></span>
+        <span><%= t "users.user.score" %>: <%= user.followers.size %></span>
+      </div>
+    </div>
+  </div>
+</div>
+

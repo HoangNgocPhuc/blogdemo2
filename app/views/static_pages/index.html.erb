@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= render "shared/list_post", posts: @post %>
+    </div>
+    <div class="col-md-4 hot-user">
+      <div class="title"><%= t "static_pages.hot_user" %></div>
+      <%= render @hot_users %>
+    </div>
+  </div>
+</div>

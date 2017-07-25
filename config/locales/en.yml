@@ -54,4 +54,19 @@ en:
         sign_up: "Sign up"
         forgot_password: "Forgot your password"
         did_not_receive_confirmation: "Didn't receive confirmation instructions?"
+  layouts:
+    header:
+      home: "Home"
+      posts: "Posts"
+      users: "Users"
+      tags: "Tags"
+      login: "Login"
+      register: "Register"
 
+  static_pages:
+    hot_user: "Hot users"
+  users:
+    user:
+      followers: "Followers"
+      following: "Following"
+      score: "Score"
