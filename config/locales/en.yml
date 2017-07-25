@@ -1,6 +1,10 @@
 en:
   hello: "Hello world"
-  title: "Blog"
+  base_title: "Blog"
+  title:
+    register: "Registration"
+    edit_profile: "Edit profile"
+    login: "Login"
   devise:
     confirmations:
       new:
@@ -62,6 +66,9 @@ en:
       tags: "Tags"
       login: "Login"
       register: "Register"
+      logout: "Logout"
+      profile: "Profile"
+      setting: "Setting"
 
   static_pages:
     hot_user: "Hot users"
