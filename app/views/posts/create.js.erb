@@ -1,0 +1,6 @@
+<% if @post.save %>
+  $('#myModal').modal('hide');
+  $('#list-post').prepend('<%= j render("posts/post", post: @post) %>');
+<% else %>
+  $('.error-post').html('<%= j render("shared/error_messages", object: @post) %>')
+<% end %>
