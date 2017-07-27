@@ -1,0 +1,6 @@
+<% if @post.errors.any? %>
+  $('.error-post').html('<%= j render("shared/error_messages", object: @post) %>')
+<% else %>
+  $('#myModal_<%= @post.id %>').modal('hide');
+  $('#post-<%= @post.id %>').html('<%= j render("posts/post", post: @post) %>');
+<% end %>

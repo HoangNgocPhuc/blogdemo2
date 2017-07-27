@@ -91,6 +91,16 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.1.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+    ckeditor (4.2.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     code_analyzer (0.4.7)
       sexp_processor
     codeclimate-engine-rb (0.4.0)
@@ -168,7 +178,7 @@ GEM
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
       json (>= 1.8, < 2.0)
-    fog-aliyun (0.1.0)
+    fog-aliyun (0.2.0)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       ipaddress (~> 0.8)
@@ -339,8 +349,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.8.0)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     nenv (0.3.0)
     nested_form (0.3.2)
@@ -428,7 +439,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
-    reek (4.7.1)
+    reek (4.7.2)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
@@ -514,7 +525,7 @@ GEM
       ref
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     tins (1.6.0)
     trollop (2.1.2)
     tzinfo (1.2.3)
@@ -553,6 +564,8 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   capybara
+  carrierwave
+  ckeditor
   coffee-rails (~> 4.2)
   config
   database_cleaner
@@ -569,6 +582,7 @@ DEPENDENCIES
   jshint
   kaminari
   listen (~> 3.0.5)
+  mini_magick
   pg (= 0.18.4)
   puma (~> 3.0)
   railroady

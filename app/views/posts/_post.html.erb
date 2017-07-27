@@ -1,13 +1,47 @@
-<div class="row box-left">
+<div class="row box-left" id=post-<%= post.id %>>
   <div class="col-md-1 image">
-    <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500")%>
+    <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500") %>
   </div>
   <div class="col-md-11 news">
     <div class="author">
       <%= post.user.name %>
+      <% if current_user == post.user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <% t ".account" %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("posts.post.edit"), edit_post_path(post), remote: true ,
+                  "data-toggle": "modal", "data-target": "#modal_edit_post_#{post.id}" %>
+                <div class="modal fade" id="<%= "modal_edit_post_#{post.id}" %>" role="dialog" data-backdrop="false">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><%= t "posts.edit.title" %></h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= render "posts/form", post: post %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <%= link_to t("posts.post.delete"), post, method: :delete,
+                  data: {confirm: t("posts.post.confirm")}, remote: true %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      <% end %>
     </div>
     <div class="title">
-      <%= link_to post.title %>
+      <%= link_to post.title, post_path(post) %>
     </div>
     <div class="tag">
       <% for tag in post.tags do %>
@@ -19,4 +53,4 @@
     </div>
   </div>
 </div>
-<hr>
+<hr id=hr-<%= post.id %>>

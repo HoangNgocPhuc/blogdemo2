@@ -1,0 +1,22 @@
+<%= form_for post, remote: true do |f| %>
+  <div class="error-post"></div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "ckeditor" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :all_tags %>
+    <%= f.text_field :all_tags, placeholder: t("posts.form.placeholder"), class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("posts.new.submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>

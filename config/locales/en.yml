@@ -1,6 +1,9 @@
 en:
   hello: "Hello world"
   base_title: "Blog"
+  error:
+    have: "Have"
+    error: "error"
   title:
     register: "Registration"
     edit_profile: "Edit profile"
@@ -77,3 +80,22 @@ en:
       followers: "Followers"
       following: "Following"
       score: "Score"
+  posts:
+    post:
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "Are you sure ?"
+    form:
+      placeholder: "Tags separated with comma"
+    new:
+      submit: "Create"
+    create:
+      title: "Create post"
+      close: "Close"
+    edit:
+      title: "Edit post"
+    destroy:
+      delete_lost: "Delete lost"
+  tags:
+    create:
+      title: "Add tag"
