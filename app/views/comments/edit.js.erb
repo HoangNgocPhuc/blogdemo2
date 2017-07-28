@@ -1,0 +1,2 @@
+$('.content-comment-<%= @comment.id %>').
+  html('<%= j render("comments/form_edit", comment: @comment) %>');

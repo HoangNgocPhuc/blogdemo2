@@ -50,3 +50,30 @@
     }
   }
 }
+
+.comment {
+
+  img {
+    width: 100px;
+  }
+}
+
+.row-comment {
+  margin-top: 20px;
+
+  .detail {
+    margin: -75px 0 0 110px;
+
+    .name {
+      font-weight: bold;
+    }
+
+    .text-time-ago {
+      color: $gray;
+    }
+  }
+
+  .hidden-submit {
+    display: none;
+  }
+}

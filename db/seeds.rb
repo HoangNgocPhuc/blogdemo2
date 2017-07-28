@@ -35,3 +35,10 @@ following = users[2..8]
 followers = users[3..7]
 following.each{|followed| user.follow followed}
 followers.each{|follower| follower.follow user}
+
+for user in users do
+  for post in posts do
+    content = Faker::Lorem.sentence 5
+    user.comments.create! content: content, post: post
+  end
+end

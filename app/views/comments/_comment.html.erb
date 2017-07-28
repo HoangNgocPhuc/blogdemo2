@@ -1,0 +1,25 @@
+<div class="row row-comment row-comment-<%= comment.id %>">
+  <div class="col-md-1">
+    <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500")%>
+  </div>
+  <div class="col-md-11 detail">
+    <div class="name">
+      <%= comment.user.name %>
+      <% if comment.user == current_user %>
+        <%= link_to t("comments.comment.delete"), comment, method: :delete,
+          data: {confirm: t("comments.comment.confirm")}, remote: true,
+          class: "delete_comment btn-xs btn-danger" %>
+        <%= link_to t("comments.comment.edit"), edit_comment_path(comment), remote: true,
+          class: "btn-xs btn-primary" %>
+      <% end %>
+    </div>
+    <div class="text-time-ago">
+      <%= t "times_ago.posted" %>
+      <%= time_ago_in_words comment.created_at %>
+      <%= t "times_ago.ago" %>
+    </div>
+    <div class="content-comment content-comment-<%= comment.id %>">
+      <%= comment.content %>
+    </div>
+  </div>
+</div>

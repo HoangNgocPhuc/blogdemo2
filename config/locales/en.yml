@@ -80,6 +80,9 @@ en:
       followers: "Followers"
       following: "Following"
       score: "Score"
+    following:
+      unfollow: "Unfollow"
+      follow: "Follow"
   posts:
     post:
       edit: "Edit"
@@ -99,3 +102,11 @@ en:
   tags:
     create:
       title: "Add tag"
+  comments:
+    form:
+      placeholder: "Write comment"
+      submit: "Create"
+    comment:
+      delete: "Delete"
+      edit: "Edit"
+      confirm: "Are you sure ?"

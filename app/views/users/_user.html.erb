@@ -1,4 +1,4 @@
-<div class="user">
+  <div class="user">
   <div class="row">
     <div class="col-md-3 image">
       <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500") %>
@@ -7,9 +7,13 @@
       <div class="name">
         <a href="{{ asset('post/detail/'.$arr->id) }}"><%= user.name %></a>
       </div>
-      <div class="btn btn-success btn-xs">Follow</div>
+      <% if user_signed_in? %>
+        <div>
+          <%= render "users/follow_form", user: user %>
+        </div>
+      <% end %>
       <div>
-        <span><%= t "users.user.followers" %>: <%= user.followers.size %></span>
+        <span><%= t "users.user.followers" %>: <span id="followers_<%= user.id %>"><%= user.followers.size %></span></span>
         <span><%= t "users.user.following" %>: <%= user.following.size %></span>
         <span><%= t "users.user.score" %>: <%= user.followers.size %></span>
       </div>

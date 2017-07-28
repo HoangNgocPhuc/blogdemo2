@@ -1,0 +1,20 @@
+<%= form_for post.comments.build, remote: true do |f| %>
+  <%= hidden_field_tag "post_id", post.id %>
+  <div class="row row-comment">
+    <div class="col-md-1">
+      <%= link_to image_tag("http://static.giaoducthoidai.vn/Uploaded/thuyvt/2014_04_26/tre/image004_XHOY.jpg?width=500")%>
+    </div>
+    <div class="col-md-10 detail">
+      <div class="name">
+        <%= current_user.name %>
+      </div>
+      <div>
+        <%= f.text_field :content,
+          placeholder: t("comments.form.placeholder"),
+          class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit t("comments.form.submit"),
+      class: "btn btn-primary hidden-submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="post">
+        <div class="title">
+          <%= @post.title %>
+        </div>
+        <div class="content">
+          <%= @post.content %>
+        </div>
+        <div class="author">
+          <div>
+            <%= @post.created_at %>
+          </div>
+          <div>
+            <%= @post.user.name %>
+          </div>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="list-comments">
+          <%= render @post.comments %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="form_comment">
+            <%= render "comments/form", post: @post %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 hot-user">
+      <%= render "users/user", user: @post.user %>
+    </div>
+  </div>
+</div>

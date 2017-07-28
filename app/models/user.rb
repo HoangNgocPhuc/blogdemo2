@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   scope :hot_user, lambda{
     joins(:followers).group("users.id")
-      .order("count(users.id) DESC").limit(Settings.hot_user.number)
+      .order("count(users.id) DESC, users.name ASC").limit(Settings.hot_user.number)
   }
 
   validates :name, presence: true, length: {maximum: Settings.user.name.maximum}
@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   def follow other_user
     following << other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   def unfollow other_user

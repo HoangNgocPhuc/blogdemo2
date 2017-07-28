@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: :show
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, except: [:new, :create, :show]
+  load_and_authorize_resource
 
   def create
     @post = current_user.posts.build post_params

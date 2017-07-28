@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "static_pages#index"
   resources :posts
+  resources :tags
+  resources :relationships, only: [:create, :destroy]
+  resources :comments
 end

@@ -1,6 +1,10 @@
 <% if @post.save %>
   $('#myModal').modal('hide');
   $('#list-post').prepend('<%= j render("posts/post", post: @post) %>');
+  $('#post_title').val('');
+  CKEDITOR.instances['post_content'].setData("");
+  $('#post_all_tags').val('');
+  CKEDITOR.replace('');
 <% else %>
   $('.error-post').html('<%= j render("shared/error_messages", object: @post) %>')
 <% end %>
